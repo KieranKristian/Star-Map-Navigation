@@ -169,7 +169,7 @@ public class StarSpawner : MonoBehaviour
     /// <summary>
     /// Adds all Stars and their distances within a radius depending on the galaxy shape to the dictionary of a Star that is passed through
     /// </summary>
-    void GenerateNeighbours(Star star) {
+    public void GenerateNeighbours(Star star) {
         Collider[] neighbours = Physics.OverlapSphere(star.transform.position, CheckRadius(), 1 << 3);
 
         foreach(Collider col in neighbours) {
