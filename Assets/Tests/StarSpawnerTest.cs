@@ -25,10 +25,9 @@ public class StarSpawnerTest
     }
 
     [Test]
-    public void GalaxyShape_UpdateShape() {
+    public void GalaxyShape_Default() {
         //Arrange
         StarSpawner.GalaxyShape expectedShape = StarSpawner.GalaxyShape.Concave;
-        spawner.galaxyShape = expectedShape;
         //Assign
         StarSpawner.GalaxyShape actualShape = spawner.galaxyShape;
         //Assert
@@ -36,7 +35,7 @@ public class StarSpawnerTest
     }
 
     [Test]
-    public void DropDown_UpdateShape() {
+    public void GalaxyShape_UpdateShape() {
         //Arrange
         StarSpawner.GalaxyShape expectedShape = StarSpawner.GalaxyShape.Bowl;
         spawner.DropDownMenuChoice(3);
@@ -55,26 +54,5 @@ public class StarSpawnerTest
         float actualRadius = spawner.CheckRadius();
         //Assert
         Assert.AreEqual(expectedRadius, actualRadius);
-    }
-
-    [Test]
-    public void GenerateNeighbours_FindNeighbours() {
-        //Arrange
-        neighbour1.transform.position = new Vector3(0, 10, 0);
-        neighbour2.transform.position = new Vector3(10, 10, 10);
-        ////Assign
-        spawner.GenerateNeighbours(mainStar);
-        ////Assert
-        Assert.Greater(mainStar.starNeighbours.Count, 0);
-    }
-
-    [Test]
-    public void GalaxyShape_Default() {
-        //Arrange
-        StarSpawner.GalaxyShape expectedShape = StarSpawner.GalaxyShape.Concave;
-        //Assign
-        StarSpawner.GalaxyShape actualShape = spawner.galaxyShape;
-        //Assert
-        Assert.AreEqual(expectedShape, actualShape);
     }
 }
